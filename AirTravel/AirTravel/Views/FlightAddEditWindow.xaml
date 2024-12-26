@@ -1,0 +1,46 @@
+﻿<Window x:Class="AirTravel.Views.FlightAddEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AirTravel.Views"
+        xmlns:vm="clr-namespace:AirTravel.ViewModels"
+        mc:Ignorable="d"
+        Title="FlightAddEditWindow" Height="450" Width="540">
+
+    <Window.DataContext>
+        <vm:FlightAddEditViewModel/>
+    </Window.DataContext>
+    <Grid  Margin="50,50,50,50">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="130"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <TextBlock Text="Тип самолёта" Grid.Row="0" Grid.Column="0"/>
+        <TextBlock Text="Пункт отправления" Grid.Row="1" Grid.Column="0"/>
+        <TextBlock Text="Пункт прибытия" Grid.Row="2" Grid.Column="0"/>
+        <TextBlock Text="Время отправления" Grid.Row="3" Grid.Column="0"/>
+        <TextBlock Text="Время прибытия" Grid.Row="4" Grid.Column="0"/>
+        <TextBlock Text="Стоимость рейса" Grid.Row="5" Grid.Column="0"/>
+
+        <ComboBox ItemsSource="{Binding JetTypes}" SelectedItem="{Binding Flight.JetType}" Grid.Row="0" Grid.Column="1" x:Name="ComboJetType" DisplayMemberPath="Name" Width="270"  HorizontalAlignment="Left"/>
+        <TextBox Text ="{Binding Flight.Departure}" Grid.Row="1" Grid.Column="1" Width="270"  HorizontalAlignment="Left"/>
+        <TextBox Text ="{Binding  Flight.Arrival}" Grid.Row="2" Grid.Column="1" Width="270"  HorizontalAlignment="Left"/>
+        <TextBox Text ="{Binding  Flight.DepartureTime}" Grid.Row="3" Grid.Column="1" Width="270"  HorizontalAlignment="Left"/>
+        <TextBox Text ="{Binding  Flight.ArrivalTime}" Grid.Row="4" Grid.Column="1" Width="270"  HorizontalAlignment="Left"/>
+        <TextBox Text ="{Binding  Flight.Price}" Grid.Row="5" Grid.Column="1" Width="270"  HorizontalAlignment="Left" />
+
+        <Button Content="Сохранить" Grid.Row="6" Grid.Column="1" Click="Button_Click" HorizontalAlignment="Right" Margin="0,0,50,10" VerticalAlignment="Bottom" ></Button>
+    </Grid>
+</Window>

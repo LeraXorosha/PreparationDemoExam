@@ -1,0 +1,56 @@
+﻿<Window x:Class="AnimalsApp.Views.AddAnimalWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AnimalsApp.Views"
+        xmlns:m="clr-namespace:AnimalsApp.Models.Data"
+        xmlns:vm="clr-namespace:AnimalsApp.ViewModels"
+        
+        
+        mc:Ignorable="d"
+        Title="AddAnimalWindow" Height="710" Width="540">
+
+    <Window.DataContext>
+        <vm:AddEditAnimalViewModel/>
+    </Window.DataContext>
+
+    <Grid Margin="50,50,50,20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="130"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+
+
+        </Grid.RowDefinitions>
+
+
+        <TextBlock Text="Название животного" Grid.Row="0" Grid.Column="0"/>
+        <TextBlock Text="Описание" Grid.Row="1" Grid.Column="0"/>
+        <TextBlock Text="Фотография" Grid.Row="2" Grid.Column="0"/>
+        <TextBlock Text="Класс" Grid.Row="3" Grid.Column="0"/>
+        <TextBlock Text="Семейство" Grid.Row="4" Grid.Column="0"/>
+        <TextBlock Text="Тип питания" Grid.Row="5" Grid.Column="0"/>
+
+
+        <TextBox Text="{Binding Animal.Name}" Grid.Row="0" Grid.Column="1" x:Name="ComboJetType" Width="270"  HorizontalAlignment="Left"/>
+        <TextBox Text ="{Binding Animal.Description}" Grid.Row="1" Grid.Column="1" Width="270" HorizontalAlignment="Left" Cursor="ScrollAll"/>
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <Image  Source="{Binding Animal.ImagePath }" Width="200" Height="180" Margin="55,10,55,0"  />
+            <Button Content="Выбрать фото" Click="SelectImage_Click" HorizontalAlignment="Center" Margin="0,10,10,0" />
+        </StackPanel>
+       
+        <ComboBox ItemsSource="{Binding MainVM.AvailableClasses}" SelectedItem="{Binding Animal.Class.Name}" Grid.Row="3" Grid.Column="1" Width="270" HorizontalAlignment="Left"/>
+        <TextBox Text ="{Binding  Animal.Family}" Grid.Row="4" Grid.Column="1" Width="270"  HorizontalAlignment="Left"/>
+        <ComboBox ItemsSource="{Binding MainVM.AvailableNutritions}" SelectedItem="{Binding Animal.Nutrition.Name}" Grid.Row="5" Grid.Column="1" Width="270" HorizontalAlignment="Left"/>
+        <Button Content="Сохранить" Grid.Row="6" Grid.Column="1" Click="Button_Click"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="#FF7FC959"/>
+    </Grid>
+</Window>

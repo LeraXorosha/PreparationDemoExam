@@ -1,0 +1,40 @@
+﻿<Page x:Class="Demo2.View.Pages.Authorization"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Demo2.View.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Authorization">
+
+    <DockPanel>
+        <Grid Background="#e1e4ff">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                <Label Content="Авторизация" HorizontalAlignment="Center"/>
+                <Label Width="360" Height="34" Content="Логин"/>
+                <TextBox x:Name="LoginTextBox" Width="360" Height="30"/>
+                <Label Content="Пароль" Width="360" Height="37"/>
+                <PasswordBox x:Name="PasswordTextBox" Height="30" Width="360"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Grid.Row="1" Content="Регистрация" Click="BtnRegistr"/>
+                    <Button Content="Войти" Click="Btn_Login"/>
+                </StackPanel>
+
+
+            </StackPanel>
+
+        </Grid>
+    </DockPanel>
+</Page>

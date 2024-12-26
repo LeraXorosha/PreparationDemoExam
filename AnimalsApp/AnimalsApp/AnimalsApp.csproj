@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="SourceData\**" />
+    <EmbeddedResource Remove="SourceData\**" />
+    <None Remove="SourceData\**" />
+    <Page Remove="SourceData\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="images\bear.jpg" />
+    <None Remove="images\elephant.jpg" />
+    <None Remove="images\giraffe.jpg" />
+    <None Remove="images\lion.jpg" />
+    <None Remove="images\navy_seal.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.5" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\bear.jpg" />
+    <Resource Include="images\elephant.jpg" />
+    <Resource Include="images\giraffe.jpg" />
+    <Resource Include="images\lion.jpg" />
+    <Resource Include="images\navy_seal.jpg" />
+  </ItemGroup>
+
+</Project>
